@@ -22,8 +22,6 @@ export async function getServerSideProps() {
     const logs = res.map(doc => {
         const log = doc.toObject();
         log._id = `${log._id}`;
-        log.timestamp = log.timestamp.toISOString();
-        log.caducidad = log.caducidad.toISOString();
         return log;
     });
     return {props: {logs}};
