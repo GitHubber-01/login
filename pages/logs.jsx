@@ -18,7 +18,7 @@ export default function Logs({logs}) {
 
 export async function getServerSideProps() {    
     await conectarDB();
-    const res = await Log.find();
+    const res = await Log.find().lean();
     const logs = res.map(doc => {
         const log = doc.toObject();
         log._id = `${log._id}`;
