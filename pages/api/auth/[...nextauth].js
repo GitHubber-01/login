@@ -12,7 +12,7 @@ export default NextAuth({
     callbacks: {
         async signIn({account, profile}) {
             
-            await fetch(`${process.env.URL}/api/logs`, {
+            await fetch(`${process.env.URL_LOCAL}/api/logs`, {
                 body: JSON.stringify({
                     usuario: profile.email,
                     caducidad: Date.now() + account.expires_at,
